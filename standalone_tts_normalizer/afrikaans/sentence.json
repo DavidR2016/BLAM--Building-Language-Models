@@ -1,0 +1,26 @@
+{
+    "sentence-definition":
+    {
+        "name": "Afrikaans sentence boundaries",
+        "language": "afrikaans",
+        "lang-code": "afr",
+        "description": "sentence boundaries are valid except if they overlap with nonboundaries",
+        "version":
+        {
+            "major": 0,
+            "minor": 1
+        }
+    },
+    "sentence-boundaries":
+    [
+        "(?<=[^\\s])\\s*\\n\\n+\\s*(?=[^\\s])",
+        "(?<=[?!])\\s+(?=[\"“„«'‘‚‹({[<`]?['‘’‛`]?\\w)",
+        "(?<=[?!.][\"”‟»'’‛›)}\\]>])\\s+(?=[\"“„«'‘‚‹({[<`]?['‘’‛`]?\\w)",
+        "(?<=\\.)\\s+(?=[\"“„«'‘‚‹({[<`]?(['‘’‛`]?n\\s+)?[A-Z])"
+    ],
+    "sentence-nonboundaries":
+    [
+        "\\b([A-Z]\\.([ \\t]+|[ \\t]*\\n[ \\t]*))+[A-Z]",
+        "\\b(Mnr|Mev|Mej|Me|Dr|Prof|Ds)\\.([ \\t]+|[ \\t]*\\n[ \\t]*)[A-Z]"
+    ]
+}

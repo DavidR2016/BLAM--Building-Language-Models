@@ -1,0 +1,12 @@
+real	3m20.357s
+user	53m13.008s
+sys	2m8.140s
+
+FLIST="P_11  P_12  P_13  P_14  P_15  P_16  P_17  P_18  V_1907  V_1908"
+
+LANGLIST="Afr Eng"
+
+YEARLIST="2011 2012 2013"
+
+
+

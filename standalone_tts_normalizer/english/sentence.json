@@ -1,0 +1,26 @@
+{
+    "sentence-definition":
+    {
+        "name": "South African English sentence boundaries",
+        "language": "english",
+        "lang-code": "eng-ZA",
+        "description": "sentence boundaries are valid except if they overlap with nonboundaries",
+        "version":
+        {
+            "major": 0,
+            "minor": 1
+        }
+    },
+    "sentence-boundaries":
+    [
+        "(?<=[^\\s])\\s*\\n\\n+\\s*(?=[^\\s])",
+        "(?<=[?!])\\s+(?=[\"“„«'‘‚‹({[<`]?\\w)",
+        "(?<=[?!.][\"”‟»'’‛›)}\\]>])\\s+(?=[\"“„«'‘‚‹({[<`]?\\w)",
+        "(?<=\\.)\\s+(?=[\"“„«'‘‚‹({[<`]?[A-Z])"
+    ],
+    "sentence-nonboundaries":
+    [
+        "\\b([A-Z]\\.([ \\t]+|[ \\t]*\\n[ \\t]*))+[A-Z]",
+        "\\b(Mlle|Mr|Mrs|Dr|Prof|Rev|St)\\.([ \\t]+|[ \\t]*\\n[ \\t]*)[A-Z]"
+    ]
+}

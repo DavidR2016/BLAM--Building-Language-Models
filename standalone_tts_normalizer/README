@@ -1,0 +1,11 @@
+==============
+TTS NORMALIZER
+==============
+
+Usage: python tts_normalizer.py <language> <in:raw_text_filepath> <out:normalized_text_filepath>
+
+The script requires python 2.7 and must be run from the root directory for correct python imports. The input and output files must be utf-8 encoded.
+
+Currently afrikaans and english is supported. Look in the respective subdirectories if you want to edit the rule files: add abbreviations and their expansions to "abbrev.json", token classes and their normalizations to "token.json" and "norm.json", and sentence split rules to "sentence.json". Single uppercase alphabetical letters are normalized to "<letter>_letter", for example "I work at the CSIR" is normalized to "i_letter work at the c_letter s_letter i_letter r_letter". You can change this behaviour in "alphaexp.json".
+
+The normalizer splits a text into sentences and then into tokens that are normalized into words. It writes the words to the output file using the hardcoded word and sentence delimiters WORD_DELIM and UTTERANCE_DELIM in tts_normalize.py. Currently, words are whitespace-delimited and sentences newline-delimited. If, for example, you want to normalize a text to a single line in the output file, then change UTTERANCE_DELIM to whitespace.

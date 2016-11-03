@@ -1,0 +1,73 @@
+{
+    "alphaexp-definition":
+    {
+        "name": "South African English alphabetical expansion classes",
+        "language": "english",
+        "lang-code": "eng-ZA",
+        "description": "",
+        "version":
+        {
+            "major": 0,
+            "minor": 1
+        }
+    },
+    "alphaexp-classes":
+    {
+        "letter":
+        {
+            "_": "underscore",
+            "a": "a_letter",
+            "b": "b_letter",
+            "c": "c_letter",
+            "d": "d_letter",
+            "e": "e_letter",
+            "f": "f_letter",
+            "g": "g_letter",
+            "h": "h_letter",
+            "i": "i_letter",
+            "j": "j_letter",
+            "k": "k_letter",
+            "l": "l_letter",
+            "m": "m_letter",
+            "n": "n_letter",
+            "o": "o_letter",
+            "p": "p_letter",
+            "q": "q_letter",
+            "r": "r_letter",
+            "s": "s_letter",
+            "t": "t_letter",
+            "u": "u_letter",
+            "v": "v_letter",
+            "w": "w_letter",
+            "x": "x_letter",
+            "y": "y_letter",
+            "z": "z_letter",
+            "A": "a_letter",
+            "B": "b_letter",
+            "C": "c_letter",
+            "D": "d_letter",
+            "E": "e_letter",
+            "F": "f_letter",
+            "G": "g_letter",
+            "H": "h_letter",
+            "I": "i_letter",
+            "J": "j_letter",
+            "K": "k_letter",
+            "L": "l_letter",
+            "M": "m_letter",
+            "N": "n_letter",
+            "O": "o_letter",
+            "P": "p_letter",
+            "Q": "q_letter",
+            "R": "r_letter",
+            "S": "s_letter",
+            "T": "t_letter",
+            "U": "u_letter",
+            "V": "v_letter",
+            "W": "w_letter",
+            "X": "x_letter",
+            "Y": "y_letter",
+            "Z": "z_letter"
+        }
+    }
+}

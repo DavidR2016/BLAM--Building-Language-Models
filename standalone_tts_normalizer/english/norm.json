@@ -1,0 +1,212 @@
+{
+    "norm-definition":
+    {
+        "name": "South African English normalization classes",
+        "language": "english",
+        "lang-code": "eng-ZA",
+        "description": "<< means take the first matched substring (pattern.search)\n>> means take the rest of the original string (i.e. the inverse of the match: pattern.sub('',...))\n== means take the whole original string\n## means split the matched substring into its constituent chars (list(str))\n&& means take all the non-overlapping matched substrings (pattern.findall)\n@@ means expand the matched substring\n\nundefined classes such as alpha and unknown will fall through (the token will be returned as is)\nthe order of classes do not matter\nregex rules within a class must be ordered and mutex within the class, since they correspond to serial (same level) if stmts",
+        "version":
+        {
+            "major": 0,
+            "minor": 1
+        }
+    },
+    "norm-classes":
+    {
+        "per":
+        {
+            "^/h$": "per hour",
+            "^/min$": "per minute",
+            "^/s$": "per second",
+            "^/kg$": "per kilogram",
+            "^/g$": "per gram",
+            "^/l$": "per litre",
+            "^/oz$": "per ounce"
+        },
+        "operator":
+        {
+            "^/$": "or",
+            "^&$": "and"
+        },
+        "money_big":
+        {
+            "\\d+((\\s+|,)\\d\\d\\d)*(\\.\\d+((\\s+|,)\\d\\d\\d)*)?": "<float<",
+            "(million|m)$": " million",
+            "(billion|bn)$": " billion",
+            "(trillion|tn)$": " trillion",
+            "^[Rr]": " rand",
+            "^\\$": " dollars",
+            "^£": " pounds",
+            "^€": " euros"
+        },
+        "money_small":
+        {
+            "^[Rr]\\s*0*1(\\.00)?$": "one rand",
+            "^\\$\\s*0*1(\\.00)?$": "one dollar",
+            "^£\\s*0*1(\\.00)?$": "one pound",
+            "^€\\s*0*1(\\.00)?$": "one euro",
+            "^0*1(\\.0+((\\s+|,)000)*)?c$": "one cent"
+        },
+        "money":
+        {
+            "[Rr]\\s*\\d+((\\s+|,)\\d\\d\\d)*": "<card< rand",
+            "\\$\\s*\\d+((\\s+|,)\\d\\d\\d)*": "<card< dollars",
+            "£\\s*\\d+((\\s+|,)\\d\\d\\d)*": "<card< pounds",
+            "€\\s*\\d+((\\s+|,)\\d\\d\\d)*": "<card< euros",
+            "\\.01": " and <card< cent",
+            "\\.((0[2-9])|([1-9][0-9]))": " and <card< cents",
+            "^\\d+((\\s+|,)\\d\\d\\d)*(\\.\\d+((\\s+|,)\\d\\d\\d)*)?\\s*c$": "<float< cents"
+        },
+        "time":
+        {
+            "(^((0?[0-9])|(1[0-1]))[:hH][0-5][0-9]$)|(^((0?[1-9])|(1[0-2]))[:hH][0-5][0-9]\\s*[Aa]\\.?[Mm]\\.?$)": "=time_am=",
+            "(^((1[2-9])|(2[0-3]))[:hH][0-5][0-9]$)|(^((0?[1-9])|(1[0-2]))[:hH][0-5][0-9]\\s*[Pp]\\.?[Mm]\\.?$)": "=time_pm="
+        },
+        "time_am":
+        {
+            "^0?0[:hH]": "twelve",
+            "^((0?[1-9])|(1[0-2]))[:hH]": "<card<",
+            "[:hH]00": " a_letter m_letter",
+            "[:hH]0[1-9]": " o_letter <card< a_letter m_letter",
+            "[:hH][1-5][0-9]": " <card< a_letter m_letter"
+        },
+        "time_pm":
+        {
+            "^((0?[1-9])|(1[0-2]))[:hH]": "<card<",
+            "^13[:hH]": "one",
+            "^14[:hH]": "two",
+            "^15[:hH]": "three",
+            "^16[:hH]": "four",
+            "^17[:hH]": "five",
+            "^18[:hH]": "six",
+            "^19[:hH]": "seven",
+            "^20[:hH]": "eight",
+            "^21[:hH]": "nine",
+            "^22[:hH]": "ten",
+            "^23[:hH]": "eleven",
+            "[:hH]00": " p_letter m_letter",
+            "[:hH]0[1-9]": " o_letter <card< p_letter m_letter",
+            "[:hH][1-5][0-9]": " <card< p_letter m_letter"
+        },
+        "date":
+        {
+            "(^(([0-2]?[0-9])|(3[0-1]))[.\\-/])|([.\\-/](([0-2]?[0-9])|(3[0-1]))$)": "<day<",
+            "[.\\-/]((0?[1-9])|(1[0-2]))[.\\-/]": " <month<",
+            "[0-9][0-9][0-9][0-9]": " <year<"
+        },
+        "day":
+        {
+            "\\d+": "<card<"
+        },
+        "month":
+        {
+            "[^\\d]+": ">month>",
+            "^0?1$": "january",
+            "^0?2$": "february",
+            "^0?3$": "march",
+            "^0?4$": "april",
+            "^0?5$": "may",
+            "^0?6$": "june",
+            "^0?7$": "july",
+            "^0?8$": "august",
+            "^0?9$": "september",
+            "^10$": "october",
+            "^11$": "november",
+            "^12$": "december"
+        },
+        "year":
+        {
+            "0[0-9][0-9][0-9]": " the year <card<",
+            "[1-9]00[0-9]": " <card<",
+            "[1-9][1-9]00": " <year_cent<",
+            "[1-9](([0-9][1-9][0-9])|([1-9][0-9][1-9])|([1-9][1-9][0-9]))": " <year_other<"
+        },
+        "year_cent":
+        {
+            "^\\d\\d": "<card< hundred"
+        },
+        "year_other":
+        {
+            "^\\d\\d": "<card<",
+            "\\d\\d$": " <card<"
+        },
+        "phone":
+        {
+            "^\\+": "plus ",
+            "[^\\d]+": ">phone>",
+            "^\\d+$": "#spell#"
+        },
+        "measure_small":
+        {
+            "^0*1(\\.0+((\\s+|,)000)*)?": "one ",
+            "%$": "percent",
+            "h$": "hour",
+            "min$": "minute",
+            "s$": "second",
+            "T.$": "tera",
+            "G.$": "giga",
+            "M.$": "mega",
+            "k.$": "kilo",
+            "c.$": "centi",
+            "m.$": "milli",
+            "m$": "metre",
+            "g$": "gram",
+            "l$": "litre",
+            "[Ww]$": "watt",
+            "b$": "byte",
+            "lb$": "pound",
+            "oz$": "ounce"
+        },
+        "measure":
+        {
+            "^\\d+((\\s+|,)\\d\\d\\d)*(\\.\\d+((\\s+|,)\\d\\d\\d)*)?": "<float< ",
+            "%$": "percent",
+            "h$": "hours",
+            "min$": "minutes",
+            "s$": "seconds",
+            "T.$": "tera",
+            "G.$": "giga",
+            "M.$": "mega",
+            "k.$": "kilo",
+            "c.$": "centi",
+            "m.$": "milli",
+            "m$": "metres",
+            "g$": "grams",
+            "l$": "litres",
+            "[Ww]$": "watts",
+            "b$": "bytes",
+            "lb$": "pounds",
+            "oz$": "ounces"
+        },
+        "float":
+        {
+            "^-?\\d+((\\s+|,)\\d\\d\\d)*": "<card<",
+            "\\.\\d+((\\s+|,)\\d\\d\\d)*$": " point#spell#"
+        },
+        "ord":
+        {
+            "[^\\d]+": ">ord>",
+            "^\\d+$": "@ord@"
+        },
+        "card":
+        {
+            "^-": "minus ",
+            "[^\\d]+": ">card>",
+            "^\\d+$": "@card@"
+        },
+        "letseq":
+        {
+            ".+": "#spell#"
+        },
+        "alnum":
+        {
+            ".+": "#spell#"
+        },
+        "spell":
+        {
+            "[^\\dA-Za-z_]": ">spell>",
+            "^\\d$": " @card@",
+            "^[A-Za-z_]$": " @letter@"
+        }
+    }
+}

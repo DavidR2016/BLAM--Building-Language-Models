@@ -1,0 +1,37 @@
+%card
+zero; one; two; three; four; five; six; seven; eight; nine;
+ten; eleven; twelve; thirteen; fourteen; fifteen; sixteen; seventeen;
+eighteen; nineteen;
+twenty; twenty >>;
+30: thirty; thirty >>;
+40: forty; forty >>;
+50: fifty; fifty >>;
+60: sixty; sixty >>;
+70: seventy; seventy >>;
+80: eighty; eighty >>;
+90: ninety; ninety >>;
+100: << hundred; << hundred and >>;
+1000: << thousand; << thousand >>;
+1000000: << million; << million >>;
+1000000000: << billion; << billion >>;
+1000000000000: << trillion; << trillion >>;
+1000000000000000: OUT OF RANGE;
+
+%ord
+zeroth; first; second; third; fourth; fifth; sixth; seventh; eighth; ninth;
+tenth; eleventh; twelfth; thirteenth; fourteenth; fifteenth; sixteenth;
+seventeenth; eighteenth; nineteenth;
+twentieth; twenty >>;
+30: thirtieth; thirty >>;
+40: fortieth; forty >>;
+50: fiftieth; fifty >>;
+60: sixtieth; sixty >>;
+70: seventieth; seventy >>;
+80: eightieth; eighty >>;
+90: ninetieth; ninety >>;
+100: <%card< hundredth; <%card< hundred and >>;
+1000: <%card< thousandth; <%card< thousand >>;
+1000000: <%card< millionth; <%card< million >>;
+1000000000: <%card< billionth; <%card< billion >>;
+1000000000000: <%card< trillionth; <%card< trillion >>;
+1000000000000000: OUT OF RANGE;

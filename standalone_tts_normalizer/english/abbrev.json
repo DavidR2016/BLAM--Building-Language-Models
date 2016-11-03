@@ -1,0 +1,57 @@
+{
+    "abbreviation-definition":
+    {
+        "name": "South African English abbreviations and their expansions",
+        "language": "english",
+        "lang-code": "eng-ZA",
+        "description": "",
+        "version":
+        {
+            "major": 0,
+            "minor": 1
+        }
+    },
+    "abbreviation-entries":
+    {
+        "Apr.": "April",
+        "Aug.": "August",
+        "cf.": "compare",
+        "Dec.": "December",
+        "e.g.": "for example",
+        "etc.": "et cetera",
+        "ETC.": "et cetera",
+        "fahr.": "fahrenheit",
+        "Fahr.": "fahrenheit",
+        "Feb.": "February",
+        "Fri.": "Friday",
+        "II.": "the second",
+        "III.": "the third",
+        "i.a.": "inter alia",
+        "i.e.": "that is",
+        "Jan.": "January",
+        "Jul.": "July",
+        "Jun.": "June",
+        "M.": "monsieur",
+        "Mar.": "March",
+        "Mlle.": "mademoiselle",
+        "Mon.": "Monday",
+        "Mr.": "mister",
+        "MR.": "mister",
+        "Mrs.": "missus",
+        "No.": "number",
+        "Nos.": "numbers",
+        "Nov.": "November",
+        "Oct.": "October",
+        "Rev.": "Reverend",
+        "Sat.": "Saturday",
+        "Sep.": "September",
+        "Sept.": "September",
+        "SEPT.": "September",
+        "St.": "Saint",
+        "Sun.": "Sunday",
+        "Thu.": "Thursday",
+        "Tue.": "Tuesday",
+        "Wed.": "Wednesday",
+        "w.r.t.": "with respect to"
+    }
+}
