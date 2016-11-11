@@ -60,39 +60,38 @@ done #YEAR
 
 # Collect text per year, faculty, language and compress
    
-for Y in $YEARLIST; do
-   INDIR="$WORKDIR/nwu-sg-$Y/step01.outdir"
-   OUTDIR="$WORKDIR/nwu-sg-$Y/step02.outdir"
+#for Y in $YEARLIST; do
+#   OUTDIR="$WORKDIR/nwu-sg-$Y/step02.outdir"
+#
+#   # Remove output per year
+#   for L in $LANGLIST; do
+#	rm -f "$OUTDIR/step02.$L.txt" # remove output from previous run
+#	rm -f "$OUTDIR/step02.$L.txt.charlist" # remove output from previous run
+#   	echo "# Removing previous collected output per faculty"
+#   	for SUBDIR in $FLIST; do
+#	   echo "rm -f $OUTDIR/$SUBDIR.step02.$L.txt"
+#	   rm -f "$OUTDIR/$SUBDIR.step02.$L.txt" # remove output from previous run
+#	done
+#   done
+#
+#   # Collect per faculty and language
+#   echo "# Collecting per faculty and language"
+#   for SUBDIR in $FLIST; do
+#	for L in $LANGLIST; do
+#	   echo "$OUTDIR/$SUBDIR.step02.$L.txt"
+#	   cat $OUTDIR/$SUBDIR/$L.txt/*.txt >> $OUTDIR/$SUBDIR.step02.$L.txt 
+#	   cat $OUTDIR/$SUBDIR/$L.txt/*.txt >> $OUTDIR/step02.$L.txt 
+#	done
+#   done
 
-   # Remove output per year
-   for L in $LANGLIST; do
-	rm -f "$OUTDIR/step02.$L.txt" # remove output from previous run
-	rm -f "$OUTDIR/step02.$L.txt.charlist" # remove output from previous run
-   	echo "# Removing previous collected output per faculty"
-   	for SUBDIR in $FLIST; do
-	   echo "rm -f $OUTDIR/$SUBDIR.step02.$L.txt"
-	   rm -f "$OUTDIR/$SUBDIR.step02.$L.txt" # remove output from previous run
-	done
-   done
-
-   # Collect per faculty and language
-   echo "# Collecting per faculty and language"
-   for SUBDIR in $FLIST; do
-	for L in $LANGLIST; do
-	   echo "$OUTDIR/$SUBDIR.step02.$L.txt"
-	   cat $OUTDIR/$SUBDIR/$L.txt/*.txt >> $OUTDIR/$SUBDIR.step02.$L.txt 
-	   cat $OUTDIR/$SUBDIR/$L.txt/*.txt >> $OUTDIR/step02.$L.txt 
-	done
-   done
-
-   for L in $LANGLIST; do
-      echo Creating a list of characters. Please wait.
-      $SCRIPTDIR/create_vocab_charlist.pl "$OUTDIR/step02.$L.txt" 0 "$OUTDIR/step02.$L.txt.charlist"
-      echo "List of characters written to $OUTDIR/step02.$L.txt.charlist"
-      echo "Creating a list of words (vocabulary). Please wait."
-      $SCRIPTDIR/create_vocab.pl "$OUTDIR/step02.$L.txt" 0 "$OUTDIR/step02.$L.txt.vocab"
-      echo "List of characters written to $OUTDIR/step02.$L.txt.vocab"
-   done
+#   for L in $LANGLIST; do
+#      echo Creating a list of characters. Please wait.
+#      $SCRIPTDIR/create_vocab_charlist.pl "$OUTDIR/step02.$L.txt" 0 "$OUTDIR/step02.$L.txt.charlist"
+#      echo "List of characters written to $OUTDIR/step02.$L.txt.charlist"
+#      echo "Creating a list of words (vocabulary). Please wait."
+#      $SCRIPTDIR/create_vocab.pl "$OUTDIR/step02.$L.txt" 0 "$OUTDIR/step02.$L.txt.vocab"
+#      echo "List of characters written to $OUTDIR/step02.$L.txt.vocab"
+#   done
 
    # Optional compressing of collected data
 	#   rm -f $OUTDIR/*.gz # remove output from previous run
@@ -103,7 +102,7 @@ for Y in $YEARLIST; do
 	#	done
 	#   done
 
-done # End of loop for collecting per YEAR
+#done # End of loop for collecting per YEAR
 
 #echo "press ENTER to view the list of characters used in the step02 files with less"
 #read

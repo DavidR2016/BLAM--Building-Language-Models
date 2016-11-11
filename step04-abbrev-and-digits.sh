@@ -15,7 +15,7 @@
 clear
 echo Check the following variables before running this script:
 echo ---------------------------------------------------------
-BASEDIR=/home/petri/tekskorpora
+BASEDIR=/mnt/data2/home2/davidr/petri/tekskorpora
 WORKDIR=$BASEDIR/NWU-studiegidse
 SCRIPTDIR=$WORKDIR/scripts
 TOOLDIR="$SCRIPTDIR/standalone_tts_normalizer"
@@ -25,13 +25,13 @@ MINCOUNT=1
 # change the commenting of the folowing pairs of lines 
 
 #FLIST="00_testdir"
-FLIST="P_11  P_12  P_13  P_14  P_15  P_16  P_17  P_18  V_1907  V_1908"
+FLIST="P_11  P_12  P_13  P_14  P_15  P_16  P_17  P_18  V_1907  V_1908 M_9010 M_9040 M_9100 M_9230 M_9240"
 
 #LANGLIST="Afr"
 LANGLIST="Afr Eng"
 
 #YEARLIST="2011"
-YEARLIST="2011 2012 2013 2014"
+YEARLIST="2015 2016"
 
 # Choose the variant (d or not) of input/output data
 #  TODO: Change the script itself to us these variables
@@ -50,8 +50,8 @@ echo Study guide language = $LANGLIST
 echo YEARLIST = $YEARLIST
 echo Faculties to be processed for each year:
 echo $FLIST
-echo Where faculty names are as follows: 
-echo P_11=Lettere  P_12=NW  P_13=Teologie  P_14=OPV  P_15=EW  P_16=REG  P_17=ING  P_18=PHARM  V_1907=BW-EDU  V_1908=EW-IT
+#echo Where faculty names are as follows: 
+#echo P_11=Lettere  P_12=NW  P_13=Teologie  P_14=OPV  P_15=EW  P_16=REG  P_17=ING  P_18=PHARM  V_1907=BW-EDU  V_1908=EW-IT
 echo
 echo 
 echo Press Ctrl-C to stop or Enter to continue
@@ -63,7 +63,7 @@ echo Press Ctrl-C to stop or Enter to continue
 # to distinguish between ACRONYMS and other words in ALLCAPS HEADINGS
 # This only needs to be done once for as many text as possible from the previous step.
 # That is why the variables YEARLIST and FLIST are not used
-ALLFLIST="P_11  P_12  P_13  P_14  P_15  P_16  P_17  P_18  V_1907  V_1908"
+ALLFLIST="P_11  P_12  P_13  P_14  P_15  P_16  P_17  P_18  V_1907  V_1908 M_9010 M_9040 M_9100 M_9230 M_9240"
 
 for L in $LANGLIST; do
    if [ -f "$WORKDIR/step03.$L.alltxt.vocab" ] ; then
@@ -123,7 +123,10 @@ for L in $LANGLIST; do
 	fi
 	for SUBDIR in $FLIST; do
 		mkdir -p $OUTDIR/$SUBDIR/$L.txt
+		echo "mkdir -p $OUTDIR/$SUBDIR/$L.txt"
 		cd $TOOLDIR
+		echo "cd $TOOLDIR"
+		pwd
 		find "$INDIR/$SUBDIR/$L.txt" -type f -name "*.txt" -printf "%f\n" \
 		|  parallel python tts_normalizer.py $NORMLANG  "$INDIR/$SUBDIR/$L.txt/"{} "$OUTDIR/$SUBDIR/$L.txt/"{} 
 	done   #SUBDIR

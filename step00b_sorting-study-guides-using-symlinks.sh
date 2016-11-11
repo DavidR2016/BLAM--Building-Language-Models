@@ -5,11 +5,11 @@
 clear
 echo "CHECK the following variables MANUALLY before running this script:"
 echo ------------------------------------------------------------------
-BASEDIR=/home/petri/tekskorpora
+BASEDIR=/home2/davidr/petri/tekskorpora
 WORKDIR=$BASEDIR/NWU-studiegidse
-RAWDIR=$BASEDIR/cdn-lnx1.nwu.ac.za
-YEARLIST="2013 2014"
-FLIST="P_11  P_12  P_13  P_14  P_15  P_16  P_17  P_18  V_1907  V_1908"
+RAWDIR=$BASEDIR/NWU-studiegidse/original-doc-pdf
+YEARLIST="2015 2016"
+FLIST="P_11  P_12  P_13  P_14  P_15  P_16  P_17  P_18  V_1907  V_1908 M_9010 M_9040 M_9100 M_9230 M_9240"
 #FLIST="00_testdir"
 
 echo BASEDIR = $BASEDIR
@@ -26,15 +26,17 @@ echo Press Enter to continue
 read
 
 ### 
-ACTION='Create symlinks without spaces in names (separating 2011, 2012, 2013, /Afr, /Eng)'
+ACTION="Create symlinks without spaces in names (separating /Afr, /Eng for the years $YEARLIST)"
 #####################################################################
 echo "busy with: $ACTION"
 for YEAR in $YEARLIST; do
    DIRYEAR=$WORKDIR/nwu-sg-$YEAR/symlinks 
    for GIDS in $FLIST; do
+	echo "mkdir -p $DIRYEAR/$GIDS/Afr"
 	mkdir -p $DIRYEAR/$GIDS/Afr
+	echo "mkdir -p $DIRYEAR/$GIDS/Eng"
 	mkdir -p $DIRYEAR/$GIDS/Eng
-	find $RAWDIR/$GIDS \
+	find $RAWDIR/nwu-sg-$YEAR/$GIDS \
 		-type f -name "* ?A? $YEAR*" -printf "ln -s '%p' $DIRYEAR/$GIDS/Afr/'%f'\n" -o \
 		-type f -name "* ?E? $YEAR*" -printf "ln -s '%p' $DIRYEAR/$GIDS/Eng/'%f'\n"     | sh
 	echo "Renaming in nwu-sg-$YEAR only the symlinks - replacing spaces and () with _"
